@@ -65,14 +65,14 @@ function removeCompleted() {
 }
 </script>
 
-<style>
+<style scoped>
 html,
 body {
   margin: 0;
   padding: 0;
 }
 
-button {
+:global(button) {
   margin: 0;
   padding: 0;
   border: 0;
@@ -88,7 +88,7 @@ button {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+:global(body) {
   font:
     14px 'Helvetica Neue',
     Helvetica,
@@ -105,8 +105,27 @@ body {
   font-weight: 300;
 }
 
-.hidden {
-  display: none;
+:global(.edit),
+.new-todo {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  color: inherit;
+  padding: 6px;
+  border: 1px solid #999;
+  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:global(:focus) {
+  box-shadow: 0 0 2px 2px #cf7d7d;
+  outline: 0;
 }
 
 .todoapp {
@@ -149,57 +168,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.new-todo,
-.edit {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  font-size: 24px;
-  font-family: inherit;
-  font-weight: inherit;
-  line-height: 1.4em;
-  color: inherit;
-  padding: 6px;
-  border: 1px solid #999;
-  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .new-todo {
   padding: 16px 16px 16px 60px;
   height: 65px;
   border: none;
   background: rgba(0, 0, 0, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
-}
-
-.main {
-  position: relative;
-  z-index: 2;
-  border-top: 1px solid #e6e6e6;
-}
-
-/*
-	Hack to remove background from Mobile Safari.
-	Can't use it globally since it destroys checkboxes in Firefox
-*/
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .toggle-all,
-  .todo-list li .toggle {
-    background: none;
-  }
-
-  .todo-list li .toggle {
-    height: 40px;
-  }
-}
-
-:focus,
-.toggle:focus + label,
-.toggle-all:focus + label {
-  box-shadow: 0 0 2px 2px #cf7d7d;
-  outline: 0;
 }
 </style>

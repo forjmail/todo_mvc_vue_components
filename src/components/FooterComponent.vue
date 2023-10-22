@@ -139,4 +139,9 @@ html .clear-completed:active {
     bottom: 10px;
   }
 }
+
+:focus {
+  box-shadow: 0 0 2px 2px #cf7d7d;
+  outline: 0;
+}
 </style>
